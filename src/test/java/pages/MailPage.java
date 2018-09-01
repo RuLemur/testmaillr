@@ -23,6 +23,9 @@ public class MailPage extends Page {
     @FindBy(xpath = "//div[@data-mnemo='from']/span")
     List<WebElement> sender;
 
+    @FindBy(xpath = "//a[text()='выход']")
+    WebElement exitBtn;
+
 
     public void checkLetterData(String themeExcp, String bodyExcp, String senderExcp) {
         Assert.assertEquals("Тема письма не верная", themeExcp, WebElementUtil.getText(theme));
@@ -30,5 +33,9 @@ public class MailPage extends Page {
         Assert.assertEquals("Отправить письма не верный", senderExcp, WebElementUtil.getText(sender.get(0)));
     }
 
+    public void logOff(){
+        WebElementUtil.click(exitBtn);
+        waitForPageLoaded();
+    }
 
 }

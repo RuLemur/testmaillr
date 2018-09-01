@@ -37,6 +37,8 @@ public class MainTest {
 
         MailPage mailPage = new MailPage(driver);
         mailPage.checkLetterData(theme, body, sender);
+
+        mailPage.logOff();
     }
 
     @After
